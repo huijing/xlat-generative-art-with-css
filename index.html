@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Generative art with CSS</title>
+    <meta name="description" content="Translation of Generative art with CSS by Yuanchuan at the 5th CSSConf in China">
+    <meta name="author" content="Chen Hui Jing">
+
+    <style>
+    body {
+      max-width: 40em;
+      margin: 0 auto;
+    }
+
+    h1 small {
+      font-size: 65%;
+    }
+
+    img {
+      display: block;
+      border: 1px dotted;
+    }
+
+    p {
+      line-height: 1.4;
+    }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="generative-art-with-css-by-yuan-chuan">Generative Art with CSS<br><small>by <a href="https://yuanchuan.name/">Yuan Chuan</a> (translated by Chen Hui Jing)</small></h1>
+    <p><em>Given at the <a href="https://css.w3ctech.com/">5th CSSConf in China</a><br>Original video: <a href="https://youtu.be/mEpocRIc3q8">CSS生成艺术@袁川_CSSConf CN 2019</a><br>Talk recap: <a href="https://www.yuque.com/cssconf/5th/hyku3f">「CSS生成艺术」演讲视频出炉</a></em></p>
+    <img src="slides/1.png">
+    <p>Hello everyone, I’m very happy to be here. This is the first time I’m giving a talk, and might also be the last time I’m speaking at CSSConf in China, so this can be considered a rare opportunity. I’ve written a lot of CSS demos over the past year,
+      I mostly do this during weekends or whenever I can spare some free time. </p>
+    <p>Before long, it became a habit, I’d start to just code up a few things every evening. If, as luck would have it, I was able to discover something new, then I’d be fairly happy the rest of the night. Today I’d like to share with everyone some of the
+      things I’ve learned along this journey, but be warned, I think most of it isn’t all that practical. </p>
+    <img src="slides/2.png">
+    <p>I’m a frontend developer, and I’m mostly active on Twitter and CodePen. I also put up some small projects on Github. So these are links to find me online.</p>
+    <p>Even though I’m a frontend developer, I usually enjoy browsing design-related or more artistic creations and I like to focus more on the details. There is a lot to be learned from this process of observation, from how these creations express a concept
+      or idea, to how each brush stroke reflects the unique characteristics of the tools that created them.</p>
+    <img src="slides/3.png">
+    <p>This is a traditional Chinese painting, and bamboo is a common theme in traditional Chinese painting. Bamboo leaves are extremely challeging to get right, and there are numerous ways you can paint them. Based on the angle which you observe them, they
+      all have different shapes. </p>
+    <p>Typically, bamboo leaves can be drawn with a single stroke of the brush, while applying varying amounts of pressure at different points of the leaf to obain that blade-shape. It takes a lot of skill to grasp the nuance required for such control.</p>
+    <p>This is the amazing part of Chinese brush painting. It hinges on the shape and softness of the brush. Painting bamboo leaves with another stiffer implement would not give you this same effect.</p>
+    <img src="slides/4.png">
+    <p>Another interesting type of art I’ve come across is sand painting. Sand painting relies on the texture of the sand itself and their interplay with light and shadow. It’s not an easy task to draw a straight line with sand. It is a different form of expression.</p>
+    <img src="slides/5.png">
+    <p>There are numerous techniques we have now in CSS that stemmed from dealing the issues of cross-browser support, or attempts to achieve certain complex designs. Even though it was a pain to deal with such issues, it’s pretty exciting if you manage to
+      find a solution.</p>
+    <p>CSS may be less flexible than Canvas or SVG, and may also be less perfomant at times, but that’s because CSS was not meant for drawing. However, many people do use CSS to create art, myself included, purely for the fun of it.</p>
+    <p>In order to use CSS to create art, it is neccessary to understand the limits of CSS and what it is capable of. More importantly, you must accept its limits and weaknesses.</p>
+    <img src="slides/6.png">
+    <p>Let’s first take a look at lines, as it is a basic element for drawing. There are numerous ways we can draw a line using CSS. But there is actually no concept of a line in CSS, we are merely creating the illusion of a line with other elements or properties.</p>
+    <img src="slides/7.png">
+    <p>You can set a height and width on an element, then give it a background colour, to make it look like a line. </p>
+    <img src="slides/8.png">
+    <p>Another way is to use any single side of the border property. </p>
+    <img src="slides/9.png">
+    <p>You could also make use of the <code>lineargradient()</code> property. </p>
+    <img src="slides/10.png">
+    <p>One thing I want to mention is the possibility of using <code>text-decoration</code> on a pseudo-element. You don’t need textual content, just some underscores to control the length of the line, and the thickness can be controlled by font size. </p>
+    <img src="slides/11.png">
+    <p>An advantage of this technique is that you can easily draw dashed lines by setting <code>text-decoration-style</code> to <code>dashed</code>.</p>
+    <img src="slides/12.png">
+    <p>Speaking of dashed lines, an interesting technique to consider is with <code>text-emphasis</code>, because we are free to determine what characters to use for it, for example, dots or dashes. You can then use <code>letter-spacing</code> to control gap
+      size. </p>
+    <img src="slides/13.png">
+    <p>Using <code>linear-gradient()</code> is also an option because you can make use of the <code>background-repeat</code> property. </p>
+    <img src="slides/14.png">
+    <p>But it’s really most straight-forward to use borders. </p>
+    <img src="slides/15.png">
+    <p>It has a dashed property built-in, and is the most versatile of all the techniques I’ve covered</p>
+    <img src="slides/16.png">
+    <p>Lines with rounded corners can be done with <code>border-radius</code>. </p>
+    <img src="slides/17.png">
+    <p>But an issue is that Chrome does not render them well at small pixel sizes, just something to take note of. </p>
+    <img src="slides/18.png">
+    <p>If you don’t mind the trouble, you could also use multiple gradients to achieve the same effect.</p>
+    <img src="slides/19.png">
+    <p>Moving on to another basic element, which is circles. The web is all boxes, so again, there is no true concept of a circle in CSS. </p>
+    <img src="slides/20.png">
+    <p>Drawing a circle requires an element with equal width and height, plus a <code>border-radius</code> of <code>50%</code>. </p>
+    <img src="slides/21.png">
+    <p>By setting different values of each of the 4 corners, you can make this blob-like shape.</p>
+    <img src="slides/22.png">
+    <p>Circles can also be drawn with <code>radial-gradient()</code>, but it’s limitation is that the edges of your circle won’t be that smooth. </p>
+    <img src="slides/23.png">
+    <p>You could also use a dot, and adjust its size using the <code>font-size</code> property. </p>
+    <img src="slides/24.png">
+    <p>I think <code>clip-path</code> is the best bet, because it does have a built-in <code>circle()</code> function. Though if you use <code>clip-path</code>, then you won’t be able to use <code>box-shadow</code> or any borders. </p>
+    <img src="slides/25.png">
+    <p><code>clip-path</code> makes it easy to draw semi-circles or ellipses. And this is what I like most about CSS, that we can use a myriad of techniques to achieve the same effect.</p>
+    <img src="slides/26.png">
+    <p>Triangles.</p>
+    <img src="slides/27.png">
+    <p>The earliest CSS-only triangles were drawn on elements with no height and width and manipulating their border values to achieve different triangular shapes. I reckon the people who came up with this technique were really smart. I first came across this
+      from a blog post by Yahoo quite early on.</p>
+    <img src="slides/28.png">
+    <p>Right-angled triangles can be created fairly simply by manipulating the <code>linear-gradient()</code> property. </p>
+    <img src="slides/29.png">
+    <p>But <code>clip-path</code> is the most straight-forward implementation of all, because what are triangles but 3 points on a plane? You just need to plot those 3 points to create the triangle of your choice.</p>
+    <img src="slides/30.png">
+    <p>Unicode also provides a large number of shapes, which we can utilise via pseudo-elements in CSS. </p>
+    <img src="slides/31.png">
+    <p>For polygons, things are not quite as simple. These mostly would require the use of <code>clip-path</code>.</p>
+    <img src="slides/32.png">
+    <p>Let’s take a deeper look at what’s going on here. If we think of a typical cartesian plane, which is made up of an infinite number of discrete x, y coordinate pairs, that’s what the <code>polygon()</code> function in clip-path is making use of to create
+      different shapes. Here, we can make use of some trigonometric functions to help us figure things out.</p>
+    <img src="slides/33.png">
+    <p>At this point, we will need to utilise Javascript, and I think that’s totally fine. Using Javascript to help us generate the requisite values dynamically is a much better approach than manual calculation. </p>
+    <img src="slides/34.png">
+    <p>Here we have 3 points, and we are only considering regular polygons for this use case, and we are making use of these 3 points to divide the circumference into 3 parts. Then utilise the trigonometric functions of sine and cosine to calculate the requisite
+      coordinates and plug them back into the function.</p>
+    <img src="slides/35.png">
+    <p>This is how it looks with 3 points, 4 points, 5 points, 6 points and so on. These shapes are all generated with <code>clip-path</code>. </p>
+    <img src="slides/36.png">
+    <p>When the number of points gets sufficiently large, the polygon essentially becomes a circle.</p>
+    <img src="slides/37.png">
+    <p>We can also utilise such mathematical functions to draw different types of curves. </p>
+    <img src="slides/38.png">
+    <p>Lissajous curves were investigated during the 19th century, and is relatively well-known. </p>
+    <img src="slides/39.png">
+    <p>It is made up of a system of parametric equations and I discovered these curves work really well with <code>clip-path</code>. </p>
+    <img src="slides/40.png">
+    <p>The <code>polygon()</code> function can take in an optional <code>fill-rule</code> parameter. Its default value is <code>nonzero</code>, but we can change it to a value of <code>evenodd</code> and when applied to this star-shape, it will clip off the
+      intersecting sections like so.</p>
+    <img src="slides/41.png">
+    <p>And we can make use of such behaviour to generate all kinds of different shapes. When I first realised this was possible, I was very intruigued by the results. Some of these shapes resemble undersea creatures to me, or even creatures from outer space.
+      These are just a small samplling of what is possible with trigonometric functions.</p>
+    <img src="slides/42.png">
+    <p>Another technique we can use is by setting the <code>box-shadow</code> property to <code>inset</code>, together with <code>border-radius</code>. Here, we have a crescent-shaped moon. </p>
+    <img src="slides/43.png">
+    <p>But if I use elements of varying heights and widths, as well as different border-radius values and box-shadows, we end up with shapes that resemble brush strokes. It is possible to combine multiple brush stroke shapes to achieve your desired effect.</p>
+    <p>Now, we’ve covered numerous techniques for creating different shapes with CSS. But how can we use these shapes? The simplest method is to just render them as is [❓13.28]. </p>
+    <img src="slides/44.png">
+    <p>We can also use CSS grid to lay the shapes out. Grid is a 2-dimensional layout system. What we’re trying to achieve here is combine related shapes to form new ones. </p>
+    <img src="slides/45.png">
+    <p>CSS is inherently tied to the DOM, so we do need to match the number of elements to the size of the grid we want. </p>
+    <img src="slides/46.png">
+    <p>For example, if I wanted a 5x5 grid, I would need 25 elements, then lay them out with CSS grid.</p>
+    <img src="slides/47.png">
+    <p>I’m starting off with a simple rule here. Here I have 2 straight lines, rotated 45 deg in the clockwise and anti-clockwise directions. My rule is to randomly select one of those lines and put them in the grid. </p>
+    <img src="slides/48.png">
+    <p>Even though this is a simple rule, because adjacent lines could potentially be joined up, we end up with a maze effect. And this is a pattern that has been around for a long time. And we are using CSS to rotate the lines as well.</p>
+    <img src="slides/49.png">
+    <p>Another rule I have is for quarter circles. Again, I randomly choose one of these 4 quarter-circles and place them into the grid. Now when the adjacent shapes are combined, we are able to get a variety to interesting patterns. Here I’m using border-radius
+      to draw these quarter-circles, but you can also use <code>clip-path</code> or <code>radial-gradient()</code> to draw these shapes as well.</p>
+    <img src="slides/50.png">
+    <p>Now the next question is, how can we dynamically generate such patterns. Because CSS does not possess the logic necessary to do something like that. I could utilise the concept of a dice, where if the result is 1, I use a particular set of values, if
+      the result is 2, show a different set of values and so on.</p>
+    <p>But we can also make use of Javascript, and I think it’s inevitable that Javascript is involved.</p>
+    <img src="slides/51.png">
+    <p>So I would like to talk a bit about css-doodle. This is a tool I wrote 2 years ago to solve this problem I had, in order to make use of some random functions and other useful things to generate these patterns.</p>
+    <img src="slides/52.png">
+    <p>If I were to use css-doodle to generate and draw these shapes, I can dynamically modify these values to create patterns of a different scale, this being an 8x8 grid now.</p>
+    <p>CSS is very dependent on HTML, and this tool allows me to focus on just the CSS. The rules for this pattern are not too complicated, and this code generates some CSS. The <code>@rand()</code> function has a range of <code>500ms</code>, if I change the
+      value to <code>5000ms</code>, the range will update accordingly from 1ms to 5000ms. </p>
+    <p><code>@pick()</code> will randomly pick a value from this matrix. This was inspired from the Logo programming language, not sure if any of you have played with it in the past, as it has a <code>pick</code> function as well.</p>
+    <img src="slides/53.png">
+    <p>Let’s take a look at another 5x5 grid.</p>
+    <p>One of the more interesting grid properties is <code>grid-auto-flow</code>. One of the speakers mentioned this earlier, and what it can do is, if you have some grid items that are of different heights and widths, this property can arrange the grid items
+      to fill up any empty spaces, where possible. Hence we get an effect like this.</p>
+    <img src="slides/54.png">
+    <p>At this point, we can add more elements to the grid, by adding a pseudo-element to every grid item. We can spruce up these pseudo-elements with different background colours, and give them a range of sizes from between 10% and 90%.</p>
+    <img src="slides/52.png">
+    <p>Oh, and I forgot to mention something earlier, let’s go back to this slide. This is stuff within the CSS grid, but I’m not sure if any of you have experience with GLSL (OpenGL Shading Language), or shaders in general. If you have, this might be more
+      familiar to you.</p>
+    <p>And these styles are mapped onto each grid cell, like how shaders are mapped to every pixel [❓18.32], it’s a similar concept, but the performance is probably not as good.</p>
+    <img src="slides/55.png">
+    <p>Back here, let’s say I have a pseudo-element like this one, I would apply these styles to each and every grid item to get an effect like the one we see here. This pattern here is just the right amount of complicated. And the effect is quite pretty,
+      making use of the properties in CSS grid.</p>
+    <img src="slides/56.png">
+    <p>Now, let’s take a look at Properties. Grid is a very basic technique to generate patterns. You could randomly put stuff into a grid and discover all sorts of unique patterns. It’s a pretty convenient technique.</p>
+    <img src="slides/57.png">
+    <p>First up, <code>border-style</code>.</p>
+    <img src="slides/58.png">
+    <p>There are lots of values for <code>border-style</code>, these 4 being the most commonly used.</p>
+    <img src="slides/59.png">
+    <p>These border styles can be used for decorative purposes.</p>
+    <img src="slides/60.png">
+    <p>For example, rotating them with transforms. Basically what I’ve done here is rotate and scale up the patterns from the previous slide. </p>
+    <img src="slides/61.png">
+    <p>If you think this is too thick, you can modify the <code>border-width</code>.</p>
+    <img src="slides/62.png">
+    <p>Or change the <code>border-color</code> to red and purple, which is kind of ugly right now. </p>
+    <img src="slides/63.png">
+    <p>Because the colour is too bright, we can modify the <code>opacity</code> values, just do these randomly.</p>
+    <img src="slides/64.png">
+    <p>We can also randomly modify the values on the <code>@grid</code> function. Now we can also use the <code>gap</code> property and give the pattern a bit more breathing room. </p>
+    <img src="slides/65.png">
+    <p>There are still improvements to be made to this design. These lines are aligned too neatly, let’s give them a bit more variety with some transforms.</p>
+    <img src="slides/66.png">
+    <p><code>@row()</code> will pass the value of each existing row to every grid cell [❓21.27], if we do something like this, we get a skewed effect.</p>
+    <img src="slides/67.png">
+    <p>This results in gaps between the lines so I can use a <code>@sin</code> function, increase the value here, to even things out, and this gives us a better result.</p>
+    <img src="slides/68.png">
+    <p>The effect we are seeing here is the result of some random values of <code>border-top</code> and <code>border-left</code>. This pattern here kind of resembles the window patterns found in ancient homes.</p>
+    <img src="slides/69.png">
+    <p>Let’s use the <code>dotted</code> value here. This keyboard of mine has issues and will repeat keystrokes sometimes.</p>
+    <img src="slides/70.png">
+    <p>This pattern uses <code>border-style: dotted</code>. We can increase the size value here, and we are actually putting the dots on a circular path. </p>
+    <img src="slides/71.png">
+    <p>Even though I’m only using 30 divs, it seems like I’m generating a lot more circles than that.</p>
+    <img src="slides/72.png">
+    <p>Now, let’s look at <code>border-image</code>. I find that this property is less used. I’ve only started playing around with it last year. Of course, I haven’t managed to dive really deep into it yet.</p>
+    <img src="slides/73.png">
+    <p>What I found interesting is that it generates symmetric patterns.</p>
+    <img src="slides/74.png">
+    <p>This is the code for the patterns in the previous slide.</p>
+    <img src="slides/75.png">
+    <p>Let’s change some values here. Increase the rotation to <code>10deg</code> makes the effect much thicker.</p>
+    <img src="slides/76.png">
+    <p>Just change the values around, it’s up to you, really. We end up with rather nice results.</p>
+    <img src="slides/77.png">
+    <p>Or we could also make use of the other possible values for <code>border-image</code>. Here I’ve combined a number of different values and as you can see, there is symmetry in all the resultant patterns.</p>
+    <img src="slides/78.png">
+    <p>And then, gradients. I really like gradients in CSS. Because CSS only allows us 2 pseudo-elements, there is no way to generate more.</p>
+    <img src="slides/79.png">
+    <p>But with gradients, because there is no limit to how many you can use, we can use them to generate more “elements” in the design.</p>
+    <img src="slides/80.png">
+    <p>This is a rather straightforward design. On this single div, we can generate 100 lines, using <code>linear-gradient()</code>.</p>
+    <img src="slides/81.png">
+    <p>Or maybe circles, with <code>radial-gradient()</code>. Even though I only have 1 div, I can generate unlimited gradients to make up for this short-coming.</p>
+    <img src="slides/82.png">
+    <p>Because we can draw many different shapes with gradients, we can apply them all to a single div, and end up with very interesting results.</p>
+    <img src="slides/83.png">
+    <p>Another pattern I like makes use of <code>mix-blend-mode</code>. Here I’m using 500 gradients per div. With 20 divs, that makes 10000 gradients.</p>
+    <img src="slides/84.png">
+    <p>This is how it originally looks. I merely zoomed in on the pattern.</p>
+    <img src="slides/85.png">
+    <p>By the end result of this code has a sci-fi feel to it. I’m not exactly sure of the consituent parts of this design, but just playing around with the different values in the various functions seems to generate very pleasant results.</p>
+    <img src="slides/86.png">
+    <p>Here we have a single gradient. Let’s add more gradients to the mix. And apply a <code>background-blend-mode</code> property. This is pretty useful when using multiple gradients. The gradients will blend together, but it’s quite tricky to control the
+      colours.</p>
+    <img src="slides/87.png">
+    <p>If we further increase the number of gradients, this is the end result. But the colours are really hard to control. We’ll just have to experiment then.</p>
+    <img src="slides/88.png">
+    <p>This current design is red, but if we change the value to <code>11</code>, colour is very different.</p>
+    <img src="slides/89.png">
+    <p>We can also change the angle of the <code>linear-gradient</code>, give it a range of <code>-60deg</code> to <code>60deg</code>. It’s just the colour is hard to deal with.</p>
+    <img src="slides/90.png">
+    <p>Since colour is the problem, I will make use of the <code>hue-rotate</code> filter to make tweaks, as the colours are not very nice.</p>
+    <img src="slides/91.png">
+    <p>Without the filter, it’s a red, blue colour, but with the filter it looks slightly better. This effect is done with multiple conic gradients.</p>
+    <img src="slides/92.png">
+    <p>We can make more changes to the function values and end up with a completely different effect. I personally just like how it looks. There are a lot more effects we can achieve with gradients.</p>
+    <img src="slides/93.png">
+    <p>This pattern is made up of a combination of lines and dots generated via <code>linear-gradient()</code> and <code>radial-gradient()</code> respectively.</p>
+    <img src="slides/94.png">
+    <p>You could also achieve something like this. The lines here are made up of multiple linear gradients, and the shapes are created with <code>clip-path</code>.</p>
+    <img src="slides/95.png">
+    <p>Box shadow is one of my favourite properties. </p>
+    <img src="slides/96.png">
+    <p>Box shadow and gradients are similar in that there is no limit to the number of shapes you can generate with them. Some people make use of <code>box-shadow</code> to create pixel art.</p>
+    <img src="slides/97.png">
+    <p>So this is a relatively small creation, I think it looks rather pretty. </p>
+    <img src="slides/98.png">
+    <p>And there isn’t a lot of code involved. It’s the culmination of numerous box shadows, and we can try to add more of them. We can also modify the values in the <code>box-shadow</code> property to adjust the position of the shapes.</p>
+    <img src="slides/99.png">
+    <p>Another effect I’m quite fond of is done using <code>box-shadow</code> with <code>filter</code>. There isn’t much code involved here. I’m creating 100 box shadows on this element and applying a filter effect.</p>
+    <img src="slides/100.png">
+    <p>If we get rid of the filter, it looks like this.</p>
+    <img src="slides/101.png">
+    <p>As we change the values for contrast, the effect starts to morph and change accordingly. Using the value of <code>5</code> seems to create the most pleasant end result.</p>
+    <img src="slides/102.png">
+    <p>These patterns look like what you would see under a microscope.</p>
+    <img src="slides/103.png">
+    <p><code>text-shadow</code> operates in a similar fashion.</p>
+    <img src="slides/104.png">
+    <p>It’s just that we would use this property for text. Because we are making use of text, then we also have the option of using Unicode symbols.</p>
+    <img src="slides/105.png">
+    <p>This is what happens if we use the character <code>x</code>.</p>
+    <img src="slides/106.png">
+    <p>We can apply different colours and sizes to <code>text-shadow</code> and sort of combine them together like so.</p>
+    <img src="slides/107.png">
+    <p>Now, this effect is made entirely with dots. The spread and distribution of the dots are all different, and when combined, we end up with such a design.</p>
+    <img src="slides/108.png">
+    <p>This feathery effect is made with parentheses.<br><em>Applause</em><br>Thank you, everyone.<br>And you can also experiment with other symbols.</p>
+    <img src="slides/109.png">
+    <p>If you are not satisfied with the shape of parentheses, you can modify it with transforms. They originally look like this, but we can apply rotation and skew to end up with such a shape.</p>
+    <img src="slides/111.png">
+    <p>And that is how I made this particular design.
+      <em>Applause</em> This sort of looks like some aquatic plants, I suppose. It’s made up of the previously created skewed parentheses and some dots.</p>
+    <img src="slides/112.png">
+    <p>We also have <code>text-decoration</code>. [❓29.59] It does resemble the <code>border</code> property in that it too has dots and dashes. </p>
+    <img src="slides/113.png">
+    <p>But it also has something called <code>wavy</code>.</p>
+    <img src="slides/114.png">
+    <p>Finally we have something curvy to work with, so let’s see how we can make use of it. For now, all I need is to set the value to <code>wavy</code>, and we can adjust the length of the line by changing the value of <code>content</code>.</p>
+    <img src="slides/115.png">
+    <p>I’m actually hiding the actual text content, which is a straight line, and displaying the wavy text decoration.</p>
+    <img src="slides/116.png">
+    <p>Then, we can rotate multiple wavy lines at equal intervals, like so. </p>
+    <img src="slides/117.png">
+    <p>We can also add a <code>perspective</code> value, and you don’t see anything different yet. </p>
+    <img src="slides/118.png">
+    <p>But once we apply a rotation transformation, we will end up with something like this. Different values of <code>perspective</code> give us very different end results.</p>
+    <img src="slides/119.png">
+    <p>Now because it’s textual content, you can try other Unicode characters like <code>x</code> or <code>o</code> or any other characters for added effects.</p>
+    <img src="slides/120.png">
+    <p>Once we throw in some colour, we can get something like this.</p>
+    <img src="slides/121.png">
+    <p>And we can also animate the entire thing.<br><em>Applause</em><br>This animation involves animating the perspective value between 50px and [❓31.52]</p>
+    <img src="slides/122.png">
+    <p>Filters is the latest thing that I’m experimenting with. I use SVG filters quite a lot, because they work extremely well with CSS. Even though you may think this is not CSS, I think it doesn’t matter because I can create a lot of things with it.</p>
+    <img src="slides/123.png">
+    <p>This is the filter I use most often. It is fairly common, and involves adding noise as a texture.</p>
+    <img src="slides/124.png">
+    <p>Here is a conic gradient. Once we add in this filter, the gradient transforms. These parameter values are really fascinating, we only need to tweak them a little bit to get some spectacular effects. You can play around with them yourself as well.</p>
+    <img src="slides/125.png">
+    <p>We can also randomise the <code>seed</code> value and end up with a different effect every time.</p>
+    <img src="slides/126.png">
+    <p>This is an effect achieved by adding radial gradients to the previous mix. Looks rather pretty.</p>
+    <img src="slides/127.png">
+    <p>And by further tweaking the parameter values on the filter, we get something like this. I worked on this a while back, and I had never seen such an effect before, and I think it looks quite nice. It looks like the terrain of an alien planet.</p>
+    <img src="slides/128.png">
+    <p>SVG filters can be used to create clouds.</p>
+    <img src="slides/130.png">
+    <p>This is not complicated as it only involves the addition of a <code>box-shadow</code>. You can see how it looks like without the filter, but once the filter is applied, we get clouds.</p>
+    <img src="slides/132.png">
+    <p>This is also done with <code>box-shadow</code> and SVG filters, specifically inset box shadows. So it appears to expand inward instead.</p>
+    <img src="slides/133.png">
+    <p>Here, I’d like to mention animations as well. If we want to animate upwards of hundreds or thousands of elements, it’s going to be quite janky. A handful is fine, but thousands of elements won’t perform well.</p>
+    <img src="slides/134.png">
+    <p>This is a demo I made a while back. Even though it looks like there are a lot of dots, maybe a few thousand, in actuality, there are only 50 divs involved. The trick here is to apply gradients to the divs, since gradients are unlimited. Say we apply
+      100 gradients on each div, with 50 divs that works out to be 5000 dots. And this animation performs quite well. If we do animations and the CPU fan starts spinning up, that’s not really a good sign.</p>
+    <img src="slides/135.png">
+    <p>Let’s look at a different example. Even though it seems like there are many lines here, it’s actually just 15 divs.</p>
+    <img src="slides/136.png">
+    <p>Here’s how 1 div looks like. Increasing the number of divs gives us such an effect, and each div has 100 lines made with linear gradients. I also discovered that SVG filters work well with animations.</p>
+    <img src="slides/137.png">
+    <p>If I apply this filter to the previous animation, we end up with a wave-style [❓36.07] animation.</p>
+    <img src="slides/138.png">
+    <p>Tweaking the <code>base-frequency</code> can give us many different effects as well. It’s really up to you. This parameter is quite fascinating.</p>
+    <img src="slides/139.png">
+    <p>There is another SVG filter that cannot be found in CSS, which is the Gaussian blur. CSS has a blur filter, but it is directionless. With SVG, we can determine if the filter is horizontal or vertical.</p>
+    <img src="slides/140.png">
+    <p>Changing the standard deviation value makes for some interesting effects as well.</p>
+    <img src="slides/141.png">
+    <p>And I also want to talk about CSS fractals.</p>
+    <img src="slides/142.png">
+    <p>Most designs nowadays use <code>rem</code> values, and use of <code>em</code> values seem to be less common. But I find that <code>em</code> values are interesting because if you have nested elements, for example, an element with 0.5em, then each level
+      of nested child element [❗️37.23??] is a fraction of the parent before it. Such nested recursion is a good characteristic we can make use of.</p>
+    <img src="slides/143.png">
+    <p>CSS is used to manipulate the DOM, which is a tree structure, and we can target nodes with selectors. [❗️37.50??]</p>
+    <img src="slides/144.png">
+    <p>This is a simple tree structure. Each element has 2 children nested within it. CSS makes it relatively simple to apply recursive styling without having to write a lot of code.</p>
+    <img src="slides/145.png">
+    <p>I&#39;ve also added some new functionality to css-doodle. Let&#39;s add a third-dimension…I apologise, this is an experimental feature, the browser has stalled…</p>
+    <img src="slides/146.png">
+    <p>Alright, this is a type of recursive structure. I&#39;ve added additional styling on each and every element, in this case, I&#39;ve applied <code>box-shadow</code>. And the dots are made with <code>radial-gradient</code>. The end result is pretty good.
+      But the performance isn&#39;t all that great. This was just an experiment.</p>
+    <img src="slides/147.png">
+    <p>The last thing I want to touch on is Houdini, because it presents us with numerous possibilities in the future.</p>
+    <img src="slides/148.png">
+    <p>Some of these things have already been mentioned previously so I will just skip over.</p>
+    <img src="slides/150.png">
+    <p>The unique thing about custom-defined properties is that you could put any values in there. Even Javascript.</p>
+    <img src="slides/151.png">
+    <p>Of course, we could go one step further, by creating our own <em>little language</em>.</p>
+    <img src="slides/152.png">
+    <p>Here I have an <code>--L-system</code>, and I&#39;ve written the logic within the custom property.</p>
+    <img src="slides/153.png">
+    <p>Or I could also recreate the Logo programming language style syntax within the custom property. These values are the logic behind my styles. Houdini has been around for quite some time, and I hope everyone who is interested can explore what&#39;s possible,
+      and make your own interesting creations.</p>
+    <img src="slides/154.png">
+    <p>After a lot of experimentation, you may come to the realisation that a lot of these techniques are comparable, only that CSS properties are a bit special. [❗️41.50??] That you need to learn processing or other tools.</p>
+    <p>I feel that this is akin to music, where different musical instruments produce sounds of varying musicality, as well as different styles of playing. But what you really need to understand is the nature of music and how to use it to express yourself.
+      That&#39;s an important lesson to learn. </p>
+    <p>I really could go deeper into each topic I mentioned, but because there isn&#39;t enough time, I will be wrapping up here. I hope that this talk has inspired you in some way. Thank you very much.</p>
+  </body>
+</html>

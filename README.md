@@ -1,0 +1,2 @@
+<h1 id="generative-art-with-css-by-yuan-chuan">Generative Art with CSS<br><small>by <a href="https://yuanchuan.name/">Yuan Chuan</a> (translated by Chen Hui Jing)</small></h1>
+<p><em>Given at the <a href="https://css.w3ctech.com/">5th CSSConf in China</a><br>Original video: <a href="https://youtu.be/mEpocRIc3q8">CSS生成艺术@袁川_CSSConf CN 2019</a><br>Talk recap: <a href="https://www.yuque.com/cssconf/5th/hyku3f">「CSS生成艺术」演讲视频出炉</a></em></p>
