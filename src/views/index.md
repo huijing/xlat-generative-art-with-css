@@ -187,7 +187,7 @@ Another technique we can use is by setting the `box-shadow` property to `inset`,
 
 But if I use elements of varying heights and widths, as well as different border-radius values and box-shadows, we end up with shapes that resemble brush strokes. It is possible to combine multiple brush stroke shapes to achieve your desired effect.
 
-Now, we’ve covered numerous techniques for creating different shapes with CSS. But how can we use these shapes? The simplest method is to just render them as is [❓13.28]. 
+Now, we’ve covered numerous techniques for creating different shapes with CSS. But how can we use these shapes? The simplest method is to just render them as tiles on a surface. 
 
 ![](img/44.png)
 
@@ -574,7 +574,7 @@ Here’s how 1 div looks like. Increasing the number of divs gives us such an ef
 
 ![](img/137.png)
 
-If I apply this filter to the previous animation, we end up with a wave-style [❓36.07] animation.
+If I apply this filter to the previous animation, we end up with a wave-style animation.
 
 ![](img/138.png)
 
@@ -594,11 +594,11 @@ And I also want to talk about CSS fractals.
 
 ![](img/142.png)
 
-Most designs nowadays use `rem` values, and use of `em` values seem to be less common. But I find that `em` values are interesting because if you have nested elements, for example, an element with 0.5em, then each level of nested child element [❗️37.23??] is a fraction of the parent before it. Such nested recursion is  a good characteristic we can make use of.
+Most designs nowadays use `rem` values, and use of `em` values seem to be less common. But I find that `em` values are interesting because if you have nested elements. The font-size of every element is calculated based on the font-size of it's parent element up the tree. Such nested recursion is a good characteristic we can make use of.
 
 ![](img/143.png)
 
-CSS is used to manipulate the DOM, which is a tree structure, and we can target nodes with selectors. [❗️37.50??]
+CSS is used to manipulate the DOM, which is a tree structure, and we can easily target individual nodes with CSS selectors. If our markup resembles that of a tree structure, the syntax of CSS selectors allows us to formulate a DSL (domain specific language) for styling.
 
 ![](img/144.png)
 
@@ -638,7 +638,7 @@ Or I could also recreate the Logo programming language style syntax within the c
 
 ![](img/154.png)
 
-After a lot of experimentation, you may come to the realisation that a lot of these techniques are comparable, only that CSS properties are a bit special. [❗️41.50??] That you need to learn processing or other tools.
+After a lot of experimentation, you may come to the realisation that a lot of these CSS techniques can be translated to other domains, and conversely, techniques from outside of CSS can be applied to CSS as well. Which is why I would like to encourage everyone to broaden their horizons and experiment with all types of tools and techniques, like processing, for example.
 
 I feel that this is akin to music, where different musical instruments produce sounds of varying musicality, as well as different styles of playing. But what you really need to understand is the nature of music and how to use it to express yourself. That's an important lesson to learn. 
 
@@ -647,5 +647,7 @@ Thank you very much.
 
 ---
 
-*I would like to thank Yuan Chuan for reviewing this translation, and for giving such an inspiring talk. Hopefully, this talk will inspire all of you as well.  
+*I would like to thank Yuan Chuan for reviewing this translation, and for giving such an inspiring talk.  
+I am not a professional translator, so my best effort here may be insufficient in expressing the full nuance of this talk. But hopefully, whatever you can glean from this will inspire you as much as it has me.  
+If you are a native Chinese speaker and want to make edits to the translation, please [submit a pull request](https://github.com/huijing/xlat-generative-art-with-css).  
 —Hui Jing*
