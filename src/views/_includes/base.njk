@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Generative art with CSS</title>
+    <meta name="description" content="Translation of Generative art with CSS by Yuanchuan at the 5th CSSConf in China">
+    <meta name="author" content="Chen Hui Jing">
+
+    <style>
+    body {
+      max-width: 40em;
+      margin: 0 auto;
+    }
+
+    h1 small {
+      font-size: 65%;
+    }
+
+    img {
+      display: block;
+      border: 1px dotted;
+    }
+
+    p {
+      line-height: 1.4;
+    }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="generative-art-with-css-by-yuan-chuan">Generative Art with CSS<br><small>by <a href="https://yuanchuan.name/">Yuan Chuan</a> (translated by Chen Hui Jing)</small></h1>
+    <p><em>Given at the <a href="https://css.w3ctech.com/">5th CSSConf in China</a><br>Original video: <a href="https://youtu.be/mEpocRIc3q8">CSS生成艺术@袁川_CSSConf CN 2019</a><br>Talk recap: <a href="https://www.yuque.com/cssconf/5th/hyku3f">「CSS生成艺术」演讲视频出炉</a></em></p>
+    {{ content | safe }}
+  </body>
+
+</html>
