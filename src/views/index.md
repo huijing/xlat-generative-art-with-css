@@ -177,7 +177,7 @@ The `polygon()` function can take in an optional `fill-rule` parameter. Its defa
 
 ![](img/41.png)
 
-And we can make use of such behaviour to generate all kinds of different shapes. When I first realised this was possible, I was very intruigued by the results. Some of these shapes resemble undersea creatures to me, or even creatures from outer space. These are just a small samplling of what is possible with trigonometric functions.
+And we can make use of such behaviour to generate all kinds of different shapes. When I first realised this was possible, I was very intruigued by the results. Some of these shapes resemble undersea creatures to me, or even creatures from outer space. These are just a small sampling of what is possible with trigonometric functions.
 
 ![](img/42.png)
 
@@ -293,7 +293,7 @@ There are still improvements to be made to this design. These lines are aligned 
 
 ![](img/66.png)
 
-`@row()` will pass the value of each existing row to every grid cell [❓21.27], if we do something like this, we get a skewed effect.
+`@row()` will pass the value of each existing row to every grid cell, if we do something like this, we get a skewed effect.
 
 ![](img/67.png)
 
@@ -480,7 +480,7 @@ This sort of looks like some aquatic plants, I suppose. It’s made up of the pr
 
 ![](img/112.png)
 
-We also have `text-decoration`. [❓29.59] It does resemble the `border` property in that it too has dots and dashes. 
+We also have `text-decoration`. It does resemble the `border` property in that it too has dots and dashes. 
 
 ![](img/113.png)
 
